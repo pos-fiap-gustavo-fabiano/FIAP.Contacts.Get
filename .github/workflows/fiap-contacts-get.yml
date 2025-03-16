@@ -6,35 +6,37 @@ on:
       - main
 
 env:
-  AZURE_FUNCTIONAPP_NAME: fiap-contacts-get
-  PROJECT_PATH: src/FIAP.Contacts.Get
+  AZURE_FUNCTIONAPP_NAME: 'fiap-contacts-get'
+  PROJECT_PATH: './src/FIAP.Contacts.Get'
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Setup .NET 8
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
 
-    - name: Restore
+    - name: Restore dependencies
       run: dotnet restore ${{ env.PROJECT_PATH }}
 
     - name: Build
-      run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
+      run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o ./publish
+      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --no-build --output ./publish
 
-    - name: Deploy para Azure
+    - name: Login Azure (Service Principal)
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy to Azure Functions
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-        package: ./publish
-        
+        package: './publish'
