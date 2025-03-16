@@ -8,6 +8,8 @@ namespace FIAP.Contacts.Get.Application.Mapping
     {
         public MappingProfile()
         {
+            CreateMap<Contact, ContactDto>().ReverseMap();
+            CreateMap<Contact, ContactWithIdDto>().ReverseMap();
             CreateMap<Phone, PhoneDto>().ReverseMap();
             CreateMap<Address, AddressDto>().ReverseMap();
         }
