@@ -11,6 +11,11 @@ namespace FIAP.Contacts.Get.Infra
     {
         public static IServiceCollection AddInfraServices(this IServiceCollection services, IConfiguration configuration)
         {
+            var connectionString = configuration.GetConnectionString("Default") ?? Environment.GetEnvironmentVariable("ConnectionStrings__Default");
+
+            if (string.IsNullOrEmpty(connectionString))
+                throw new ArgumentException("Connection string not found");
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("Default")));
 
