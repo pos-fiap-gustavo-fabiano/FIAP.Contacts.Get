@@ -27,6 +27,9 @@ jobs:
     - name: Build
       run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
 
+    - name: Run Tests
+      run: dotnet test --configuration Release
+
     - name: Publish
       run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --no-build --output ./publish
 
