@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIAP.Contacts.Get", "src\FI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIAP.Contacts.Get.Infra", "src\FIAP.Contacts.Get.Infra\FIAP.Contacts.Get.Infra.csproj", "{BF271A1D-95CE-0D62-C9B2-32E2AF48A75C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIAP.Contacts.Get.UnitTest", "tests\FIAP.Contacts.Get.Tests\FIAP.Contacts.Get.UnitTest.csproj", "{37728334-56C7-4357-6783-FEDF938DE481}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{BF271A1D-95CE-0D62-C9B2-32E2AF48A75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF271A1D-95CE-0D62-C9B2-32E2AF48A75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF271A1D-95CE-0D62-C9B2-32E2AF48A75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37728334-56C7-4357-6783-FEDF938DE481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37728334-56C7-4357-6783-FEDF938DE481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37728334-56C7-4357-6783-FEDF938DE481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37728334-56C7-4357-6783-FEDF938DE481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{A0ADFBF3-5587-22CD-F907-7C5F75E9C899} = {4C70D856-0044-4DF6-BE45-089393FE07BA}
 		{771F05D2-B07A-AEA1-EFAB-FFA29702BB5C} = {3087E7BF-B2BB-4F4E-910B-E90245885548}
 		{BF271A1D-95CE-0D62-C9B2-32E2AF48A75C} = {D179D27A-BE0D-4043-94BE-20EBAD35385C}
+		{37728334-56C7-4357-6783-FEDF938DE481} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B216E5B-400E-4411-A95A-F64FDB479B2E}
