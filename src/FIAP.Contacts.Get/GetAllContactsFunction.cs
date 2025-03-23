@@ -20,6 +20,7 @@ namespace FIAP.Contacts.Get
             _mediator = mediator;
         }
 
+
         [Function(nameof(GetAllContactsFunction))]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "contacts")] HttpRequest req)
         {
