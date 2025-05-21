@@ -36,7 +36,8 @@ namespace FIAP.Contacts.Get.Infra.Repositories
 
             query = query
                 .Skip((page - 1) * limit)
-                .Take(limit);
+                .Take(limit)
+                .OrderByDescending(x => x.CreatedAt);
 
             return (await query.ToListAsync(ct), total);
         }
